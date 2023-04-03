@@ -5,10 +5,10 @@ import {
   amplifyInitialize,
   authenticator,
 } from "../utils/codeBlocks";
-import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Home = () => {
-  const navigate = useNavigate();
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <div className="home-container">
@@ -33,10 +33,7 @@ const Home = () => {
           the top-left corner of this page or signing in below and registering a
           new account.
         </p>
-        <button
-          className="sign-in-button"
-          onClick={() => navigate("/magic-wallet")}
-        >
+        <button className="sign-in-button" onClick={() => loginWithRedirect()}>
           Sign In
         </button>
       </section>

@@ -1,29 +1,21 @@
-export const awsExports = `const awsConfig = {
-  "aws_project_region": "us-east-1",
-  "aws_cognito_identity_pool_id": "YOUR_COGNITO_IDENTITY_POOL_ID",
-  "aws_cognito_region": "us-east-1",
-  "aws_user_pools_id": "YOUR_USER_POOL_ID",
-  "aws_user_pools_web_client_id": "YOUR_APP_CLIENT_ID",
-};
+export const clone = `git clone git@github.com:ayv8er/MWS-Auth0-Demo.git`;
 
-export default awsConfig;`;
+export const install = `npm install
+// or
+yarn add`;
 
-export const importAmplify = `import Amplify from 'aws-amplify';
-import awsConfig from './aws-exports';
-import { Authenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';`;
+export const start = `npm run dev
+# or
+yarn dev`;
 
-export const amplifyInitialize = `Amplify.configure(awsConfig);`;
+export const envSetup = `REACT_APP_AUTH0_DOMAIN=
+REACT_APP_AUTH0_CLIENT_ID=
+REACT_APP_MAGIC_PUBLISHABLE_API_KEY=
+REACT_APP_MAGIC_PROVIDER_ID=`;
 
-export const authenticator = `function App() {
-  return (
-      <Authenticator>
-          {({ signOut, user }) => (
-              <div>
-                  <p>Welcome {user.username}</p>
-                  <button onClick={signOut}>Sign out</button>
-              </div>
-          )}
-      </Authenticator>
-  );
-}`;
+export const magicConstructor = `const magicClient = new Magic(<Magic_Publishable_API_Key>, extensions: [new OpenIdExtension()])`;
+
+export const magicOidc = `const did = await magic.openid.loginWithOIDC({
+    jwt: <Auth0_OIDC_Token>,
+    providerId: <Magic_Provider_ID>
+})`;

@@ -1,9 +1,11 @@
 import CodeBlock from "../components/CodeBlock";
 import {
-  awsExports,
-  importAmplify,
-  amplifyInitialize,
-  authenticator,
+  clone,
+  install,
+  start,
+  envSetup,
+  magicConstructor,
+  magicOidc,
 } from "../utils/codeBlocks";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -58,90 +60,108 @@ const Home = () => {
       </section>
       <section id="instructions">
         <h2>Instructions</h2>
-        <p>To build your own app using AWS, follow these instructions:</p>
+        <p>To build your own app using Auth0, follow these instructions:</p>
         <div className="step-list">
+          <h3>Auth0</h3>
           <ol>
             <li>
-              First, make sure you have an AWS account. If you don't, create one
-              by visiting{" "}
+              Create an{" "}
+              <a href="https://auth0.com/" target="_blank" rel="noreferrer">
+                Auth0 account
+              </a>
+              .
+            </li>
+            <li>
+              Create an Auth0{" "}
+              <span className="example">Single Page Web Applications</span> type
+              application.
+            </li>
+            <li>
+              Go to the settings of the Auth0 application and retain the{" "}
+              <span className="example">Domain, Client ID</span> and{" "}
+              <span className="example">Client Secret</span>.
+            </li>
+            <li>
+              Under{" "}
+              <span className="example">
+                Applications" -> "YOUR_APP" -> "Settings"
+              </span>
+              , enter <span className="example">http://localhost:3000</span> in{" "}
+              <span className="example">Allowed Callback URLs</span> and{" "}
+              <span className="example">Allowed Logout URLs</span> under the{" "}
+              <span className="example">Application URIs</span> sub-section.
+            </li>
+            <li>
+              Explore the{" "}
               <a
-                href="https://aws.amazon.com/"
+                href="https://auth0.github.io/auth0-react/"
                 target="_blank"
                 rel="noreferrer"
               >
-                AWS
-              </a>{" "}
-              and following the instructions.
+                @auth0/auth0-react docs
+              </a>
+              .
+            </li>
+          </ol>
+          <h3>Magic</h3>
+          <ol>
+            <li>
+              Create a{" "}
+              <a href="https://magic.link/" target="_blank" rel="noreferrer">
+                Magic account
+              </a>
+              .
             </li>
             <li>
-              Once you have an AWS account, go to the{" "}
+              Create a Magic Auth application and retain the{" "}
+              <span className="example">Publishable API Key</span>.
+            </li>
+            <li>
+              Explore the{" "}
               <a
-                href="https://console.aws.amazon.com/"
+                href="https://magic.link/docs/auth/api-reference/client-side-sdks/web"
                 target="_blank"
                 rel="noreferrer"
               >
-                AWS Management Console
+                Magic Web API docs
+              </a>
+              .
+            </li>
+          </ol>
+          <h3>Magic MWS Setup</h3>
+          <ol>
+            <li>
+              Contact Magic and provide the Auth0{" "}
+              <span className="example">Domain</span>, Auth0{" "}
+              <span className="example">Client ID</span> and{" "}
+              <span className="example">Magic Publishable API Key</span>.
+            </li>
+            <li>
+              Magic will return a <span className="example">Provider ID</span>.
+              Please retain this.
+            </li>
+          </ol>
+          <h3>Local Setup</h3>
+          <ol>
+            <li>
+              Start by cloning this repo to your local machine:
+              <CodeBlock text={clone} />
+            </li>
+            <li>
+              To install and set up the library, run:
+              <CodeBlock text={install} />
+            </li>
+            <li>
+              Create a <code>.env</code> file and add the following variables,
+              using the values obtained in our earlier steps:
+              <CodeBlock text={envSetup} />
+            </li>
+            <li>
+              Open{" "}
+              <a href="http://localhost:3000" target="_blank" rel="noreferrer">
+                http://localhost:3000
               </a>{" "}
-              and sign in.
-            </li>
-            <li>
-              In the console, navigate to the Cognito service by selecting
-              "Services" from the menu at the top of the screen and searching
-              for "Cognito". Select "Cognito" when it appears in the search
-              results.
-            </li>
-            <li>In the Cognito dashboard, click on "Create user pool".</li>
-            <li>
-              Follow the on page instructions and select the settings that you
-              require for your app. When finished, review your selections and
-              click "Create user pool".
-            </li>
-            <li>
-              Once the user pool is created, click on it and follow the{" "}
-              <a
-                href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                instruction here
-              </a>{" "}
-              to create an app integration.
-            </li>
-            <li>
-              In the root directory of your React app, install the AWS Amplify
-              library by running the command{" "}
-              <code>npm install aws-amplify</code>.
-            </li>
-            <li>
-              Next, install the AWS Amplify React library by running the command{" "}
-              <code>npm install aws-amplify-react</code>.
-            </li>
-            <li>
-              In the root directory of your React app, create a new file called
-              "aws-exports.js". Copy the following code into this file,
-              replacing the values with your own:
-              <CodeBlock text={awsExports} />
-              Replace the placeholders with your actual values, which you can
-              find in your Cognito console and AppSync console.
-            </li>
-            <li>
-              In your app's "src/index.js" file, import the following:
-              <CodeBlock text={importAmplify} />
-            </li>
-            <li>
-              Initialize Amplify by adding the following code to the same file:
-              <CodeBlock text={amplifyInitialize} />
-            </li>
-            <li>
-              To display the Amplify UI Authenticator component, add the
-              following lines of code to the application's entry point file
-              (App.js):
-              <CodeBlock text={authenticator} />
-            </li>
-            <li>
-              Finally, start your app by running the command{" "}
-              <code>npm start</code> in your terminal. Your app should now be
-              configured to use AWS Cognito for authentication.
+              with your browser to see the result.
             </li>
           </ol>
         </div>

@@ -1,12 +1,5 @@
 import CodeBlock from "../components/CodeBlock";
-import {
-  clone,
-  install,
-  start,
-  envSetup,
-  magicConstructor,
-  magicOidc,
-} from "../utils/codeBlocks";
+import { clone, install, start, envSetup } from "../utils/codeBlocks";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Home = () => {
@@ -155,6 +148,10 @@ const Home = () => {
               Create a <code>.env</code> file and add the following variables,
               using the values obtained in our earlier steps:
               <CodeBlock text={envSetup} />
+            </li>
+            <li>
+              To start the app, run:
+              <CodeBlock text={start} />
             </li>
             <li>
               Open{" "}

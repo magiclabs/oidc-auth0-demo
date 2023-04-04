@@ -5,7 +5,7 @@ export const install = `npm install
 yarn add`;
 
 export const start = `npm run dev
-# or
+// or
 yarn dev`;
 
 export const envSetup = `REACT_APP_AUTH0_DOMAIN=

@@ -6,7 +6,7 @@ import {
   NavLink,
 } from "react-router-dom";
 import Home from "./pages/Home";
-import Wallet from "./pages/Wallet";
+import WalletPage from "./pages/Wallet";
 import Footer from "./components/Footer";
 
 function App() {
@@ -44,7 +44,7 @@ function App() {
         </header>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/magic-wallet" element={<Wallet />} />
+          <Route path="/magic-wallet" element={<WalletPage />} />
         </Routes>
         <Footer />
       </Router>

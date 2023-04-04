@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Magic } from "magic-sdk";
 import { OpenIdExtension } from "@magic-ext/oidc";
 import PulseLoader from "react-spinners/PulseLoader";
 import ClipLoader from "react-spinners/ClipLoader";
 import { ethers } from "ethers";
 
-const MagicWidget = ({ user, signOut }) => {
+const MagicWidget = ({ jwt }) => {
+  const { logout } = useAuth0();
   const [address, setAddress] = useState(null);
   const [balance, setBalance] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
@@ -14,11 +16,10 @@ const MagicWidget = ({ user, signOut }) => {
     amount: "",
   });
   const [isSending, setIsSending] = useState(false);
-  const magicPublishableKey = "pk_live_E4F135AEC08C0BEB";
-  const providerId = "iADLL3f93drBVBQpvwiAWnnBwfrFY4vR_IE5Z7Ob3Uc=";
-  const jwt = user.signInUserSession.idToken.jwtToken;
 
-  const magic = new Magic(magicPublishableKey, {
+  console.log(jwt);
+
+  const magic = new Magic(process.env.REACT_APP_MAGIC_PUBLISHABLE_API_KEY, {
     network: "goerli",
     extensions: [new OpenIdExtension()],
   });
@@ -26,7 +27,10 @@ const MagicWidget = ({ user, signOut }) => {
   const provider = new ethers.BrowserProvider(magic.rpcProvider);
 
   const loginWithMagic = async () => {
-    await magic.openid.loginWithOIDC({ jwt, providerId });
+    await magic.openid.loginWithOIDC({
+      jwt: jwt,
+      providerId: process.env.REACT_APP_MAGIC_PROVIDER_ID,
+    });
     const data = await magic.user.getMetadata();
 
     setAddress(data.publicAddress);
@@ -67,9 +71,9 @@ const MagicWidget = ({ user, signOut }) => {
     }
   };
 
-  const logout = async () => {
+  const signOut = async () => {
     setIsConnected(false);
-    signOut();
+    logout({ logoutParams: { returnTo: window.location.origin } });
     await magic.user.logout();
   };
 
@@ -161,7 +165,7 @@ const MagicWidget = ({ user, signOut }) => {
             </form>
           </div>
           <hr />
-          <button className="sign-out-button" onClick={logout}>
+          <button className="sign-out-button" onClick={signOut}>
             Sign Out
           </button>
         </div>

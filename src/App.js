@@ -8,8 +8,11 @@ import {
 import Home from "./pages/Home";
 import WalletPage from "./pages/Wallet";
 import Footer from "./components/Footer";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
+  const { loginWithRedirect } = useAuth0();
+
   return (
     <div className="App">
       <Router>
@@ -30,7 +33,7 @@ function App() {
             <NavLink className="nav-link" exact="true" to="/">
               Home
             </NavLink>
-            <NavLink className="nav-link" to="/magic-wallet">
+            <NavLink onClick={() => loginWithRedirect()} className="nav-link">
               Magic Wallet
             </NavLink>
             <NavLink

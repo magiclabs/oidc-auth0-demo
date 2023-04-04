@@ -130,7 +130,7 @@ const MagicWidget = ({ jwt }) => {
               </a>
             </div>
             <a
-              href={`/mws-cognito-demo/?token=${jwt}`}
+              href={`https://reveal.magic.link/mws-auth0-demo/?token=${jwt}`}
               target="_blank"
               rel="noreferrer"
             >

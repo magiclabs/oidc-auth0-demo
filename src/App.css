@@ -4,6 +4,11 @@ html {
   overflow-y: scroll;
 }
 
+* {
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
 h1,
 h2,
 h3,
@@ -12,6 +17,13 @@ p {
   margin: 0;
   padding: 0;
   color: rgb(47, 47, 47);
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
 .App {
@@ -78,6 +90,7 @@ p {
 .home-title span {
   font-weight: normal;
   font-size: 45px;
+  line-height: 1.2;
 }
 
 .logo-container {
@@ -327,6 +340,6 @@ ul li {
   font-style: italic;
 }
 
-.aws-variable {
+.auth0-variable {
   color: #d13212;
 }

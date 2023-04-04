@@ -15,15 +15,11 @@ const Home = () => {
       <div className="logo-container">
         <img className="logo" src="/magic-logo.png" alt="Magic logo" />{" "}
         <p className="plus-sign">+</p>
-        <img
-          className="logo"
-          src="aws-cognito-logo.png"
-          alt="Amazon Cognito logo"
-        />
+        <img className="logo" src="auth0-logo.png" alt="Auth0 logo" />
       </div>
       <h1 className="home-title">
         Magic Wallet Services
-        <br /> <span>with</span> <br /> Amazon Cognito
+        <br /> <span>with</span> <br /> Auth0
       </h1>
       <hr className="divider" />
       <section id="demo">
@@ -41,17 +37,18 @@ const Home = () => {
         <h2>What's Needed for MWS Integration</h2>
         <ul>
           <li>
-            Issuer Domain:{" "}
+            Auth0 Domain:{" "}
             <span className="example">
-              https://cognito-idp.
-              <span className="aws-variable">YOUR_AWS_REGION</span>
-              .amazonaws.com/
-              <span className="aws-variable">YOUR_USER_POOL_ID</span>/
+              https://
+              <span className="auth0-variable">YOUR_AUTH0_DOMAIN</span>
+              .us.auth0.com
             </span>
           </li>
           <li>
-            Client ID:{" "}
-            <span className="example">e.g. 62t7cb1mddee60mocn9holvmef</span>
+            Auth0 Client ID:{" "}
+            <span className="example">
+              e.g. lfrjlWCQIqWmJv6ky5ykm00QCQGCgLe9
+            </span>
           </li>
           <li>
             Magic Publishable API Key:{" "}

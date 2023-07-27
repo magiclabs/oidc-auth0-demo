@@ -17,8 +17,6 @@ const MagicWidget = ({ jwt }) => {
   });
   const [isSending, setIsSending] = useState(false);
 
-  console.log(jwt);
-
   const magic = new Magic(process.env.REACT_APP_MAGIC_PUBLISHABLE_API_KEY, {
     network: "goerli",
     extensions: [new OpenIdExtension()],

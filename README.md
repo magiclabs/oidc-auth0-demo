@@ -1,3 +1,3 @@
-### Magic Wallet Services with Auth0 Demo
+### OIDC with Auth0 Demo
 
-- Codesandbox - https://codesandbox.io/s/github/magiclabs/mws-auth0-demo
+- Codesandbox - https://codesandbox.io/s/github/magiclabs/oidc-auth0-demo

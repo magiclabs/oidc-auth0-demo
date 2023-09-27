@@ -13,11 +13,11 @@ const Footer = () => {
         <p>|</p>
         <a
           className="footer-link"
-          href="https://magic.link/wallet-services"
+          href="https://magic.link/enterprise"
           target="_blank"
           rel="noreferrer"
         >
-          MWS
+          Enterprise
         </a>
         <p>|</p>
         <a

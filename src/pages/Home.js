@@ -13,7 +13,7 @@ const Home = () => {
         <img className="logo" src="auth0-logo.png" alt="Auth0 logo" />
       </div>
       <h1 className="home-title">
-        Magic Wallet Services
+        Magic OIDC Extension
         <br /> <span>with</span> <br /> Auth0
       </h1>
       <hr className="divider" />
@@ -28,8 +28,8 @@ const Home = () => {
           Sign In
         </button>
       </section>
-      <section className="info-for-mws">
-        <h2>What's Needed for MWS Integration</h2>
+      <section className="info-for-oidc">
+        <h2>What's Needed for OIDC Integration</h2>
         <ul>
           <li>
             Auth0 Domain:{" "}
@@ -112,7 +112,7 @@ const Home = () => {
             <li>
               Explore the{" "}
               <a
-                href="https://magic.link/docs/auth/api-reference/client-side-sdks/web"
+                href="https://magic.link/docs/dedicated/api-reference/client-side-sdks/web"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -121,7 +121,7 @@ const Home = () => {
               .
             </li>
           </ol>
-          <h3>Magic MWS Setup</h3>
+          <h3>Magic OIDC Setup</h3>
           <ol>
             <li>
               Contact Magic and provide the Auth0{" "}

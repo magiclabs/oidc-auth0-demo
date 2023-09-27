@@ -1,4 +1,4 @@
-export const clone = `git clone git@github.com:magiclabs/mws-auth0-demo.git`;
+export const clone = `git clone git@github.com:magiclabs/oidc-auth0-demo.git`;
 
 export const install = `npm install
 // or

@@ -1,5 +1,5 @@
 {
-  "name": "mws-auth0-demo",
+  "name": "oidc-auth0-demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

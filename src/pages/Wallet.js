@@ -9,7 +9,7 @@ const WalletPage = () => {
   useEffect(() => {
     const getToken = async () => {
       const token = await getIdTokenClaims();
-      console.log(token.__raw);
+      console.log("JWT: ", token.__raw);
       setJwt(token.__raw);
     };
     if (isAuthenticated) {

@@ -18,7 +18,7 @@ const MagicWidget = ({ jwt }) => {
   const [isSending, setIsSending] = useState(false);
 
   const magic = new Magic(process.env.REACT_APP_MAGIC_PUBLISHABLE_API_KEY, {
-    network: "goerli",
+    network: "sepolia",
     extensions: [new OpenIdExtension()],
   });
 
@@ -30,7 +30,6 @@ const MagicWidget = ({ jwt }) => {
       providerId: process.env.REACT_APP_MAGIC_PROVIDER_ID,
     });
     const data = await magic.user.getMetadata();
-
     setAddress(data.publicAddress);
     setIsConnected(true);
   };
@@ -127,13 +126,18 @@ const MagicWidget = ({ jwt }) => {
                 <button className="small-button">Get ETH</button>
               </a>
             </div>
-            <a
+            {/* <a
               href={`https://reveal.magic.link/mws-auth0-demo/?token=${jwt}`}
               target="_blank"
               rel="noreferrer"
+            > */}
+            <button
+              onClick={() => magic.user.revealPrivateKey()}
+              className="reveal-button"
             >
-              <button className="reveal-button">Reveal Private Key</button>
-            </a>
+              Reveal Private Key
+            </button>
+            {/* </a> */}
           </div>
           <hr />
           <div className="send-container">
